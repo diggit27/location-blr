@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #ff4d4d;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .location {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesButton {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        #noButton {
+            background-color: #999;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine? 💖</h1>
+    <div class="buttons">
+        <button id="yesButton" onclick="goToSurprise()">Yes</button>
+        <button id="noButton" onclick="changeNoButton()">No</button>
+    </div>
+    <script>
+        let yesSize = 20;
+        let noResponses = [
+            "Are you sure?", "Please reconsider 💔", "Think again? 😢", "Last chance! 😭", 
+            "Really? 💀", "This is hurting me... 😭", "Don't break my heart 💘", "Come on, say yes!", "Just one more chance? 🥺",
+            "You wouldn't do this to me... 😔", "What if I bring chocolates? 🍫", "I'll be really sad... 😭", "I'll never recover 💔",
+            "Even the stars are crying... 🌟😭", "You're making my heart shrink 😢"
+        ];
+        let noIndex = 0;
+
+        function changeNoButton() {
+            let yesButton = document.getElementById("yesButton");
+            let noButton = document.getElementById("noButton");
+
+            yesSize += 10;
+            yesButton.style.fontSize = yesSize + "px";
+            yesButton.style.padding = (yesSize / 2) + "px";
+
+            noButton.innerText = noResponses[noIndex % noResponses.length];
+            noIndex++;
+        }
+
+        function goToSurprise() {
+            window.location.href = "valentine-surprise.html";
+        }
+    </script>
+</body>
+</html>
